@@ -129,9 +129,13 @@
   <ItemGroup>
     <ClCompile Include="Actor.cpp" />
     <ClCompile Include="Engine.cpp" />
+    <ClCompile Include="Floor.cpp" />
+    <ClCompile Include="Goal.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Monster.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="Vector2D.cpp" />
     <ClCompile Include="Wall.cpp" />
     <ClCompile Include="World.cpp" />
@@ -139,13 +143,30 @@
   <ItemGroup>
     <ClInclude Include="Actor.h" />
     <ClInclude Include="Engine.h" />
+    <ClInclude Include="Floor.h" />
+    <ClInclude Include="Goal.h" />
     <ClInclude Include="Input.h" />
+    <ClInclude Include="Monster.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="Renderer.h" />
     <ClInclude Include="Vector2D.h" />
     <ClInclude Include="Wall.h" />
     <ClInclude Include="World.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="level01.map" />
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
+    <Import Project="packages\SDL3-VC.Redist.3.2.8\build\native\SDL3-VC.Redist.targets" Condition="Exists('packages\SDL3-VC.Redist.3.2.8\build\native\SDL3-VC.Redist.targets')" />
+    <Import Project="packages\SDL3-VC.3.2.8\build\native\SDL3-VC.targets" Condition="Exists('packages\SDL3-VC.3.2.8\build\native\SDL3-VC.targets')" />
   </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\SDL3-VC.Redist.3.2.8\build\native\SDL3-VC.Redist.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\SDL3-VC.Redist.3.2.8\build\native\SDL3-VC.Redist.targets'))" />
+    <Error Condition="!Exists('packages\SDL3-VC.3.2.8\build\native\SDL3-VC.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\SDL3-VC.3.2.8\build\native\SDL3-VC.targets'))" />
+  </Target>
 </Project>

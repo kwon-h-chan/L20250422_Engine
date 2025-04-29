@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include <string>
 
 class AActor;
 
@@ -11,6 +12,8 @@ public:
 
 	void Tick();
 	void Render();
+
+	void Load(std::string filename);
 
 	void SpawnActor(AActor* NewActor);
 	void DestroyActor(AActor* DestroyedActor);

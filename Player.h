@@ -5,8 +5,9 @@ class APlayer : public AActor
 {
 public:
 	APlayer();
-	virtual ~APlayer();
+	APlayer(const FVector2D& Invector);
 
+	virtual ~APlayer();
 	virtual void Tick() override;
 };
 
